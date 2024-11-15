@@ -1,0 +1,35 @@
+<div class="container mt-2">
+  <a class="btn btn-primary" routerLink="/empleado-create">Crear</a>
+  @if (empleados.length > 0) {
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellido paterno</th>
+          <th>Apellido materno</th>
+          <th>Curp</th>
+          <th>Telefono</th>
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of empleados; track $index) {
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellidoPaterno}}</td>
+            <td>{{item.apellidoMaterno}}</td>
+            <td>{{item.curp}}</td>
+            <td>{{item.telefono}}</td>
+            <td><button class="btn btn-warning" [routerLink]="['/empleado-edit',item.id]">Editar</button></td>
+            <td><button class="btn btn-warning" (click)="eliminar(item)">Eliminar</button></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }@else {
+    <p class="mt-2 alert alert-warning text-center">No hay datos.</p>
+  }
+</div>

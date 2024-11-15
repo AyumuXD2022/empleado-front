@@ -1,0 +1,69 @@
+<div class="container mt-2">
+  @if (id) {
+    <h1>Editar</h1>
+  }@else {
+    <h1>Guardar</h1>
+  }
+  <form [formGroup]="empleadoForm">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="email" class="form-control" id="nombre" formControlName="nombre">
+      @if (empleadoForm.controls['nombre'].invalid && (empleadoForm.controls['nombre'].dirty || empleadoForm.controls['nombre'].touched)) {
+        @if (empleadoForm.controls['nombre'].errors?.['required']) {
+          <p class="mt-2 alert alert-warning text-center">Se requiere.</p>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+      <input type="email" class="form-control" id="apellidoPaterno" formControlName="apellidoPaterno">
+      @if (empleadoForm.controls['apellidoPaterno'].invalid && (empleadoForm.controls['apellidoPaterno'].dirty || empleadoForm.controls['apellidoPaterno'].touched)) {
+        @if (empleadoForm.controls['apellidoPaterno'].errors?.['required']) {
+          <p class="mt-2 alert alert-warning text-center">Se requiere.</p>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+      <input type="email" class="form-control" id="apellidoMaterno" formControlName="apellidoMaterno">
+      @if (empleadoForm.controls['apellidoMaterno'].invalid && (empleadoForm.controls['apellidoMaterno'].dirty || empleadoForm.controls['apellidoMaterno'].touched)) {
+        @if (empleadoForm.controls['apellidoMaterno'].errors?.['required']) {
+          <p class="mt-2 alert alert-warning text-center">Se requiere.</p>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="curp" class="form-label">Curp</label>
+      <input type="email" class="form-control" id="curp" formControlName="curp">
+      @if (empleadoForm.controls['curp'].invalid && (empleadoForm.controls['curp'].dirty || empleadoForm.controls['curp'].touched)) {
+        @if (empleadoForm.controls['curp'].errors?.['required']) {
+          <p class="mt-2 alert alert-warning text-center">Se requiere.</p>
+        }
+        @if (empleadoForm.controls['curp'].errors?.['pattern']) {
+          <p class="mt-2 alert alert-warning text-center">La CURP no es válida.</p>
+        }
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="telefono" class="form-label">Telefono</label>
+      <input type="email" class="form-control" id="telefono" formControlName="telefono">
+      @if (empleadoForm.controls['telefono'].invalid && (empleadoForm.controls['telefono'].dirty || empleadoForm.controls['telefono'].touched)) {
+        @if (empleadoForm.controls['telefono'].errors?.['required']) {
+          <p class="mt-2 alert alert-warning text-center">Se requiere.</p>
+        }
+      }
+    </div>
+
+
+
+    @if (id) {
+      <button type="button" class="btn btn-primary" [disabled]="empleadoForm.invalid" (click)="edit()">Editar</button>
+    }@else {
+      <button type="button" class="btn btn-primary" [disabled]="empleadoForm.invalid" (click)="crear()">Guardar</button>
+    }
+  </form>
+</div>

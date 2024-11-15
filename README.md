@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+## Further help
+http://localhost:9000/api/v1/list-empleado list
+http://localhost:9000/api/v1/empleado/1 getEmpleadoById
+http://localhost:9000/api/v1/empleado saveEmpleado
+http://localhost:9000/api/v1/empleado/1 updateEmpleadoById
+http://localhost:9000/api/v1/empleado/1 deleteEmpleadoById
